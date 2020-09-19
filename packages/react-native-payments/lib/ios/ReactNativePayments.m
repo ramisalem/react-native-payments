@@ -352,6 +352,8 @@ RCT_EXPORT_METHOD(handleDetailsUpdate: (NSDictionary *)details
     
     if (token) {
         [paymentResponse setObject:token forKey:@"paymentToken"];
+    } else { 
+       [paymentResponse setObject:paymentMethod forKey:@"payment"];
     }
     
     [self.bridge.eventDispatcher sendDeviceEventWithName:@"NativePayments:onuseraccept"
